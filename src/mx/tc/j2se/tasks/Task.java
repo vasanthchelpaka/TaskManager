@@ -28,7 +28,7 @@ public class Task {
     }
 
     public String toString(){
-        return title + " " + time +" "+ end +" "+ interval + " "+repeat;
+        return title + " " + time +" "+ end +" "+ interval + " "+repeat + '\n';
     }
 
     public String getTitle() {
