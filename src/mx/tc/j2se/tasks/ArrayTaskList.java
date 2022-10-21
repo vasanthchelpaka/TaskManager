@@ -34,12 +34,14 @@ public class ArrayTaskList {
 
     }
 
+    //removes task and then returns true
+    //it also decrements the size of array after deletion.
     public Object remove(Task task) {
 
 
         for (int i = 0; i < elementData.length-1; i++) {
             if (elementData[i].getTitle().equals(task.getTitle())) {
-                System.out.println(i);
+                //System.out.println(i);
                 for(int j=i;j<size;j++){
                     if(j==size-1) break;
                     elementData[j]=elementData[j+1];
@@ -50,8 +52,17 @@ public class ArrayTaskList {
 
         }
         elementData[size-1] = null;
+        size--;
         return true;
+    }
 
+    //returns the number of tasks
+    public int size(){
+        return size;
+    }
+
+    public Task getTask(int index){
+        return (elementData[index-1]);
 
     }
 }

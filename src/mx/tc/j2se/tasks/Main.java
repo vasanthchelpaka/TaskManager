@@ -15,9 +15,12 @@ public class Main {
         task.add(task3);
         //task.add(3);
         task.display();
-       System.out.println( task.remove(task3));
-       System.out.println("$$");
+       //System.out.println( task.remove(task1));
+       //System.out.println("$$");
         task.display();
+        System.out.println();
+        System.out.println(task.size());
+        System.out.println(task.getTask(3));
 
     }
 }
