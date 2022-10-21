@@ -2,6 +2,23 @@ package mx.tc.j2se.tasks;
 
 public class Task {
     String title;
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "title='" + title + '\'' +
+                ", status=" + status +
+                ", repeat=" + repeat +
+                ", time=" + time +
+                ", start=" + start +
+                ", end=" + end +
+                ", interval=" + interval +
+                ", current=" + current +
+                '}' +
+                '\n'
+                ;
+    }
+
     boolean status,repeat;
     int time;
     int start;
@@ -27,10 +44,6 @@ public class Task {
         this.repeat=true;
     }
 
-    public String toString(){
-        return title + " " + time +" "+ end +" "+ interval + " "+repeat + '\n';
-    }
-
     public String getTitle() {
         return title;
     }
@@ -46,11 +59,13 @@ public class Task {
     }
 
     //returns start time if task is repetitive
+    //changed a bit to get time without complications, might have to change back
     public int getTime() {
         if(isRepeated()){
             return getStartTime();
         }
-        return current;
+        //return current;
+        return getStartTime();
     }
 
     //converts repetitive task to non-repetitive

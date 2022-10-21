@@ -1,6 +1,7 @@
 package mx.tc.j2se.tasks;
 import java.util.*;
 
+
 public class ArrayTaskList {
 
     private static final int INITIAL_CAPACITY = 3;
@@ -61,9 +62,23 @@ public class ArrayTaskList {
         return size;
     }
 
+
     public Task getTask(int index){
         return (elementData[index-1]);
 
+    }
+
+    //make it compatible to repetitive tasks also
+    public ArrayList<Task> incoming(int from, int to){
+        ArrayList<Task> ar = new ArrayList<Task>();
+        for (int i = 0; i < size; i++) {
+            //System.out.println(elementData[i].getTime());
+            if(elementData[i].getTime()<to && elementData[i].getTime()>from){
+                ar.add(elementData[i]);
+            }
+        }
+        //System.out.println(ar.size());
+        return ar;
     }
 }
 
