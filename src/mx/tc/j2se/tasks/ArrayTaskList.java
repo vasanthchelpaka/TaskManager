@@ -2,7 +2,7 @@ package mx.tc.j2se.tasks;
 import java.util.*;
 
 
-public class ArrayTaskList {
+public class ArrayTaskList extends AbstractTaskList{
 
     private static final int INITIAL_CAPACITY = 3;
     private int size = 0;
@@ -37,7 +37,7 @@ public class ArrayTaskList {
 
     //removes task and then returns true
     //it also decrements the size of array after deletion.
-    public Object remove(Task task) {
+    public void remove(Task task) {
 
 
         for (int i = 0; i < elementData.length-1; i++) {
@@ -54,7 +54,7 @@ public class ArrayTaskList {
         }
         elementData[size-1] = null;
         size--;
-        return true;
+       // return true;
     }
 
     //returns the number of tasks

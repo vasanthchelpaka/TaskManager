@@ -31,8 +31,8 @@ public class Task {
         this.title=title;
         this.time=time;
         this.repeat=false;
-        System.out.println(title);
-        System.out.println(time);
+//        System.out.println(title);
+//        System.out.println(time);
     }
 
     // repetitive task  constructor
