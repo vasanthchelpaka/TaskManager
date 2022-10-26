@@ -1,4 +1,5 @@
 package mx.tc.j2se.tasks;//package mx.tc.j2se.tasks;
+import java.lang.Iterable;
 
 import java.util.ArrayList;
 
@@ -11,8 +12,8 @@ public class Main {
         Task task1 = new Task("a",1);
         Task task2 = new Task("b",20);
         Task task3 = new Task("c",3);
-        Task task5 = new Task("chelpaka",33,111,5);
-        Task task6 = new Task("running",54,90,1);
+        Task task4 = new Task("chelpaka",33,111,5);
+        Task task5 = new Task("running",504,90,1);
 
 
      /*    code for ArrayTaskList
@@ -62,29 +63,45 @@ public class Main {
 
         */
 
+//        //Incoming method of LinkedList
+//        //adding tasks
+//        LinkedTaskList ll=new LinkedTaskList();
+//        ll.add(task1);
+//        ll.add(task2);
+//        ll.add(task3);
+//        ll.add(task4);
+//        ll.add(task5);
+//
+//        // Giving from and to and storing the return in arraylist,
+//        // iterate it for displaying
+//        ArrayList<Task> t= ll.incoming(0,300);
+//        System.out.println(t.size());
+//        for (int i=0;i<t.size();i++){
+//            System.out.println(t.get(i));
+//        }
 
 
-        TaskListFactory tf =new TaskListFactory();
-        AbstractTaskList ab = tf.createTaskList(ListTypes.types.ARRAY);
-        ab.add(task3);
-        //ab.display();
+          //ABSTRACT FACTORY
+        //'AbstractTaskList ab/bc' has the instance of the arrayList/LinkedList in it,
+        // so it is possible to call the methods in their classes.
 
-        LinkedTaskList ll=new LinkedTaskList();
 
-        ll.add(task1);
+//        TaskListFactory tf =new TaskListFactory();
+//        AbstractTaskList ab = tf.createTaskList(ListTypes.types.ARRAY);
+//        ab.add(task3);
+//        ab.display();
+//        AbstractTaskList bc = tf.createTaskList(ListTypes.types.LINKED);
+//        bc.add(task4);
+//        bc.display();
 
-        ArrayList<Task> t= ll.incoming(0,300);
-        System.out.println(t.size());
-        for (int i=0;i<t.size();i++){
-            System.out.println(t.get(i));
+       // CustomList<Task> Listt = new CustomList<Task>(data);
+        // creating a CustomList Object Which OverRides.
+        //The Iterator and Use The Custom Iterator Which is Defined in The Code.
+        AbstractTaskList.Iterator temp =Listt.iterator();  //getting Custom iterator from List.
+        while (temp.hasNext())
+        {   //custom hasNext() Method
+            String value = temp.next().toString();   // Custom Method Return The Current Index
+            System.out.print(value + ", ");
         }
-
-
-
-
-
-
-
-
     }
 }

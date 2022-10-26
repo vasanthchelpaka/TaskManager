@@ -2,7 +2,7 @@ package mx.tc.j2se.tasks;
 import java.util.*;
 
 
-public class ArrayTaskList extends AbstractTaskList{
+public  class ArrayTaskList extends AbstractTaskList{
 
     private static final int INITIAL_CAPACITY = 3;
     private int size = 0;
