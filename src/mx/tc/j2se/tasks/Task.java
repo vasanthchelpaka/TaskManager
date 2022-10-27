@@ -1,4 +1,8 @@
 package mx.tc.j2se.tasks;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Task {
     String title;
@@ -20,14 +24,15 @@ public class Task {
     }
 
     boolean status,repeat;
-    int time;
-    int start;
-    int end;
-    int interval;
-    int current;
+
+    LocalDateTime time;
+    LocalDateTime start;
+    LocalDateTime end;
+    LocalTime interval;
+    LocalDateTime current;
 
     //non-repetitive task constructor
-    Task(String title, int time){
+    Task(String title, LocalDateTime time){
         this.title=title;
         this.time=time;
         this.repeat=false;
@@ -36,7 +41,7 @@ public class Task {
     }
 
     // repetitive task  constructor
-    Task (String title, int start, int end, int interval){
+    Task (String title, LocalDateTime start, LocalDateTime end, LocalTime interval){
         this.title=title;
         this.start=start;
         this.end=end;
@@ -60,16 +65,16 @@ public class Task {
 
     //returns start time if task is repetitive
     //changed a bit to get time without complications, might have to change back
-    public int getTime() {
-        if(isRepeated()){
-            return getStartTime();
-        }
+    public LocalDateTime getTime() {
+//        if(isRepeated()){
+//            return ;
+//        }
         //return current;
-        return getStartTime();
+        return this.time;
     }
 
     //converts repetitive task to non-repetitive
-    public void setTime(int time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
         if(isRepeated()){
             repeat=false;
@@ -77,7 +82,7 @@ public class Task {
     }
 
     //returns time of executions if task is non-repetitive
-    public int getStartTime() {
+    public LocalDateTime getStartTime() {
         if(!isRepeated()) {
             return time ;
         }
@@ -86,7 +91,7 @@ public class Task {
     }
 
     //returns time of executions if task is non-repetitive
-    public int getEndTime() {
+    public LocalDateTime getEndTime() {
         if(!isRepeated()) {
             return time;
         }
@@ -94,19 +99,19 @@ public class Task {
     }
 
     //why ?
-    public int getCurrentTime(){
+    public LocalDateTime getCurrentTime(){
         return this.current;
     }
     //why??
-    public int getRepeatInterval(){
+    public LocalTime getRepeatInterval(){
         if(!isRepeated()){
-            return 0;
+            return LocalTime.of(0,0,0);
         }
         return interval;
     }
 
     //if task is non-repetitive, converts it into repetitive
-    public void setTime(int start, int end, int interval){
+    public void setTime(LocalDateTime start, LocalDateTime end, LocalTime interval){
         if(!isRepeated()){
             repeat=true;
         }
@@ -122,17 +127,20 @@ public class Task {
 
     //returns next start time of execution after current time
     //I believe the interval should be added to start not current
-    public int nextTimeAfter (int current){
-        if(current < end) {
+    public LocalDateTime nextTimeAfter (LocalDateTime current){
+        if(current.isBefore( end)) {
             status=true;
-            current += interval;
+            current=current.plusHours(interval.getHour());
+            current=current.plusMinutes(interval.getMinute());
             return current;
         }
         else{
             status=false;
-            return -1;
+            return LocalDateTime.of(0,0,0,0,0,0);
         }
     }
 
 
 }
+
+

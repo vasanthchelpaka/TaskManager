@@ -1,6 +1,7 @@
 package mx.tc.j2se.tasks;
 
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -129,12 +130,12 @@ public class LinkedTaskList extends AbstractTaskList {
 //        return Objects.hash(head, tail);
 //    }
 
-    public ArrayList<Task> incoming(int from, int to){
+    public ArrayList<Task> incoming(LocalDateTime from, LocalDateTime to){
         ArrayList<Task> ar = new ArrayList<Task>();
         Node current=head;
         while(current != null)
         {
-            if(current.data.getTime()>from && current.data.getTime()<to)
+            if(current.data.getTime().compareTo(from) >0 && current.data.getTime().compareTo(to)<0)
             {
                 ar.add(current.data);
             }

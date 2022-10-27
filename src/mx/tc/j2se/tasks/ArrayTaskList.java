@@ -1,4 +1,5 @@
 package mx.tc.j2se.tasks;
+import java.time.LocalDateTime;
 import java.util.*;
 
 
@@ -35,6 +36,25 @@ public  class ArrayTaskList extends AbstractTaskList{
 
     }
 
+   /* public void display(){
+        public Iterator < String > iterator() {
+            Iterator < String > iter = new Iterator < String > () {
+                private int currentIndex = 0;
+                @Override
+                public boolean hasNext() {
+                    return currentIndex < size;
+                }
+
+                @Override
+                public String next() {
+                    if (hasNext()) return myData.get(currentIndex++);
+                    else throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                }
+            };
+            return iter;
+        }
+    }*/
+
     //removes task and then returns true
     //it also decrements the size of array after deletion.
     public void remove(Task task) {
@@ -64,16 +84,16 @@ public  class ArrayTaskList extends AbstractTaskList{
 
 
     public Task getTask(int index){
-        return (elementData[index-1]);
+        return (elementData[index]);
 
     }
 
     //make it compatible to repetitive tasks also
-    public ArrayList<Task> incoming(int from, int to){
+    public ArrayList<Task> incoming(LocalDateTime from, LocalDateTime to){
         ArrayList<Task> ar = new ArrayList<Task>();
         for (int i = 0; i < size; i++) {
             //System.out.println(elementData[i].getTime());
-            if(elementData[i].getTime()<to && elementData[i].getTime()>from){
+            if(elementData[i].getTime().compareTo(to) < 0 && elementData[i].getTime().compareTo(from) > 0){
                 ar.add(elementData[i]);
             }
         }

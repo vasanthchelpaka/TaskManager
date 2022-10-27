@@ -1,6 +1,9 @@
 package mx.tc.j2se.tasks;//package mx.tc.j2se.tasks;
 import java.lang.Iterable;
-
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.util.Iterator;
 import java.util.ArrayList;
 
 
@@ -9,11 +12,13 @@ import static mx.tc.j2se.tasks.ListTypes.types.ARRAY;
 public class Main {
     public static void main(String[] args) {
 
-        Task task1 = new Task("a",1);
-        Task task2 = new Task("b",20);
-        Task task3 = new Task("c",3);
-        Task task4 = new Task("chelpaka",33,111,5);
-        Task task5 = new Task("running",504,90,1);
+        Task task1 = new Task("a", LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0),LocalDateTime.of(2020, Month.valueOf("DECEMBER"),20,8,0,0), LocalTime.of(22,45,5));
+        Task task2 = new Task("b",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
+        Task task3 = new Task("c",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
+        Task task4 = new Task("chelpaka",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
+        Task task5 = new Task("running",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
+        System.out.println(task1.getEndTime());
+        System.out.println(task1.nextTimeAfter(LocalDateTime.of(2020,Month.valueOf("NOVEMBER"),3,5,3,33)));
 
 
      /*    code for ArrayTaskList
@@ -97,11 +102,83 @@ public class Main {
        // CustomList<Task> Listt = new CustomList<Task>(data);
         // creating a CustomList Object Which OverRides.
         //The Iterator and Use The Custom Iterator Which is Defined in The Code.
-        AbstractTaskList.Iterator temp =Listt.iterator();  //getting Custom iterator from List.
-        while (temp.hasNext())
-        {   //custom hasNext() Method
-            String value = temp.next().toString();   // Custom Method Return The Current Index
-            System.out.print(value + ", ");
+//        AbstractTaskList.Iterator temp =Listt.iterator();  //getting Custom iterator from List.
+//        while (temp.hasNext())
+//        {   //custom hasNext() Method
+//            String value = temp.next().toString();   // Custom Method Return The Current Index
+//            System.out.print(value + ", ");
+//        }
+
+
+    /*// starts here
+        AbstractTaskList abobject2 = new ArrayTaskList();
+        abobject2.add(task4);
+        abobject2.add(task3);
+        abobject2.add(task2);
+        abobject2.add(task5);
+        Iterator<mx.tc.j2se.tasks.Task> itr = abobject2.iterator();
+        // Checking the next element  where
+        // condition holds true till there is single element
+        // in the List using hasnext() method
+        System.out.print("\nUSING ITERATORS TO DISPLAY THE ARRAYLIST ELEMENTS ");
+        while (itr.hasNext()) {
+            //  Moving cursor to next element
+
+            Task i = itr.next();
+//            System.out.println("in list");
+            // Getting elements one by one
+            System.out.print(i.getTitle() + " ");
+            // Removing odd elements
         }
+        System.out.print("\nDISPLAY THE ARRAYLIST ELEMENTS ");
+        abobject2.display();*/
+
+
+
+
+
+
+   /*     //EQUALS
+        AbstractTaskList obj2 = new ArrayTaskList();
+        obj2.add(task1);
+        obj2.add(task2);
+        obj2.add(task3);
+        obj2.add(task4);
+
+        AbstractTaskList obj1 = new ArrayTaskList();
+        obj1.add(task1);
+        obj1.add(task2);
+        obj1.add(task3);
+        obj1.add(task1);
+
+        boolean tf= AbstractTaskList.equals(obj1,obj2);
+        System.out.println((tf));*/
+
+
+   /*     // hashcode
+        AbstractTaskList obj2 = new ArrayTaskList();
+        obj2.add(task1);
+        obj2.add(task2);
+        obj2.add(task3);
+        obj2.add(task4);
+
+        AbstractTaskList obj1 = new ArrayTaskList();
+        obj1.add(task1);
+        obj1.add(task2);
+        obj1.add(task3);
+        obj1.add(task1);
+
+        boolean hc = AbstractTaskList.hashcode(obj1,obj2);
+        System.out.println(hc);*/
+
+
+
+
+
+
+
+
+
+
     }
 }
