@@ -6,7 +6,7 @@ import java.util.*;
 public  class ArrayTaskList extends AbstractTaskList{
 
     private static final int INITIAL_CAPACITY = 3;
-    private int size = 0;
+    public int size = 0;
     private Task elementData[] = {};
 
     public ArrayTaskList() {
@@ -79,6 +79,8 @@ public  class ArrayTaskList extends AbstractTaskList{
 
     //returns the number of tasks
     public int size(){
+
+
         return size;
     }
 
@@ -100,6 +102,8 @@ public  class ArrayTaskList extends AbstractTaskList{
         //System.out.println(ar.size());
         return ar;
     }
+
+
 }
 
 

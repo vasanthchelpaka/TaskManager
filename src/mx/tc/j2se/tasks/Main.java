@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.stream.Stream;
+import java.util.stream.*;
 
 
 import static mx.tc.j2se.tasks.ListTypes.types.ARRAY;
@@ -12,13 +14,13 @@ import static mx.tc.j2se.tasks.ListTypes.types.ARRAY;
 public class Main {
     public static void main(String[] args) {
 
-        Task task1 = new Task("a", LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0),LocalDateTime.of(2020, Month.valueOf("DECEMBER"),20,8,0,0), LocalTime.of(22,45,5));
-        Task task2 = new Task("b",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
-        Task task3 = new Task("c",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
-        Task task4 = new Task("chelpaka",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
-        Task task5 = new Task("running",LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0));
-        System.out.println(task1.getEndTime());
-        System.out.println(task1.nextTimeAfter(LocalDateTime.of(2020,Month.valueOf("NOVEMBER"),3,5,3,33)));
+        Task task1 = new Task("task1", LocalDateTime.of(2020, Month.valueOf("AUGUST"),20,8,0,0),LocalDateTime.of(2020, Month.valueOf("DECEMBER"),20,8,0,0), LocalTime.of(22,45,5));
+        Task task2 = new Task("task2",LocalDateTime.of(2021, Month.valueOf("AUGUST"),20,8,0,0));
+        Task task3 = new Task("task3",LocalDateTime.of(2022, Month.valueOf("AUGUST"),20,8,0,0));
+        Task task4 = new Task("task4",LocalDateTime.of(2023, Month.valueOf("AUGUST"),20,8,0,0));
+        Task task5 = new Task("task5",LocalDateTime.of(2024, Month.valueOf("AUGUST"),20,8,0,0));
+    //    System.out.println(task1.getEndTime());
+    //    System.out.println(task1.nextTimeAfter(LocalDateTime.of(2020,Month.valueOf("NOVEMBER"),3,5,3,33)));
 
 
      /*    code for ArrayTaskList
@@ -172,9 +174,40 @@ public class Main {
         System.out.println(hc);*/
 
 
+/*
+
+// incoming using iterator
+        // make it compatible with linked list also
+
+        AbstractTaskList abobject2 = new ArrayTaskList();
+        abobject2.add(task1);
+        abobject2.add(task2);
+        abobject2.add(task3);
+        abobject2.add(task4);
+       // abobject2.display();
+//System.out.println(abobject2.size());
+        Iterator<Task> iter = abobject2.iterator();
+    //    System.out.println("2");
+        Iterator<Task> b = Tasks.incoming(iter,LocalDateTime.of(2021,Month.valueOf("JANUARY"),3,5,3,33),LocalDateTime.of(2024,Month.valueOf("DECEMBER"),13,3,33,4));
+        //System.out.println("bye");
+        while (b.hasNext()) {
+            Task i = b.next();
+            //System.out.println("hi");
+            System.out.print(i);
+        }
+*/
 
 
 
+        AbstractTaskList abobject2 = new ArrayTaskList();
+        abobject2.add(task1);
+        abobject2.add(task2);
+        abobject2.add(task3);
+        abobject2.add(task4);
+
+        //System.out.println(abobject2.getStream().findFirst().get().getTask(0).getTitle());
+        //AbstractTaskList ab=abobject2.getStream();
+        abobject2.getStream().forEach(n-> System.out.println(n));
 
 
 
