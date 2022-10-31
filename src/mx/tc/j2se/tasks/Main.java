@@ -199,7 +199,9 @@ public class Main {
 
 
 
-        AbstractTaskList abobject2 = new ArrayTaskList();
+
+        // streams old.
+     /*   AbstractTaskList abobject2 = new ArrayTaskList();
         abobject2.add(task1);
         abobject2.add(task2);
         abobject2.add(task3);
@@ -207,8 +209,27 @@ public class Main {
 
         //System.out.println(abobject2.getStream().findFirst().get().getTask(0).getTitle());
         //AbstractTaskList ab=abobject2.getStream();
-        abobject2.getStream().forEach(n-> System.out.println(n));
+        abobject2.getStream().forEach(n-> System.out.println(n));*/
 
+
+      /*  AbstractTaskList abobject2 = new ArrayTaskList();
+        abobject2.add(task1);
+        abobject2.add(task2);
+        abobject2.add(task3);
+        abobject2.add(task4);
+
+        abobject2.getStream();
+       // System.out.println(abobject2.getStream().findFirst().get().getStartTime());
+        Stream<Task> t=abobject2.getStream();
+                t.forEach(System.out::println);*/
+
+        AbstractTaskList abobject3 = new LinkedTaskList();
+        abobject3.add(task1);
+        abobject3.add(task2);
+        abobject3.add(task3);
+        abobject3.add(task4);
+        List<AbstractTaskList> aList = new ArrayList<AbstractTaskList>(abobject3);
+        abobject3.getStream();
 
 
 

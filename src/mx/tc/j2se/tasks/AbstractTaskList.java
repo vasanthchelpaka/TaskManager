@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 
 public abstract class AbstractTaskList implements Iterable<Task> {
 
+    public abstract Stream<Task> getStream();
+
     private mx.tc.j2se.tasks.Task Task;
 
     public abstract void add(Task task);
@@ -87,11 +89,6 @@ public abstract class AbstractTaskList implements Iterable<Task> {
     }
 
 
-public Stream<AbstractTaskList> getStream(){
-    List<AbstractTaskList> number = Arrays.asList(this);
-    return number.stream();
-
-    }
 
 }
 

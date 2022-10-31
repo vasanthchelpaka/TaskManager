@@ -1,11 +1,13 @@
 package mx.tc.j2se.tasks;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 
 public  class ArrayTaskList extends AbstractTaskList{
 
-    private static final int INITIAL_CAPACITY = 3;
+    private static final int INITIAL_CAPACITY = 1;
     public int size = 0;
     private Task elementData[] = {};
 
@@ -103,7 +105,12 @@ public  class ArrayTaskList extends AbstractTaskList{
         return ar;
     }
 
-
+    @Override
+    public  Stream<Task> getStream() {
+        System.out.println("test");
+       return Stream.of(elementData);
+       //return null;
+    }
 }
 
 
