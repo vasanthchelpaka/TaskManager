@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 
-public  class ArrayTaskList extends AbstractTaskList{
+public  class ArrayTaskList<T> extends AbstractTaskList{
 
     private static final int INITIAL_CAPACITY = 1;
     public int size = 0;
@@ -110,6 +110,13 @@ public  class ArrayTaskList extends AbstractTaskList{
         System.out.println("test");
        return Stream.of(elementData);
        //return null;
+    }
+
+    @Override
+    public AbstractTaskList<Task> clone(AbstractTaskList<Task> ) {
+        ArrayTaskList<Task> a=new
+
+        return null;
     }
 }
 

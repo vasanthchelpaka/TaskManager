@@ -25,7 +25,7 @@ public class Tasks {
             }
         };
 */
-        AbstractTaskList a=new ArrayTaskList();
+        AbstractTaskList a=new ArrayTaskList<Task>();
 
 
         Iterator<Task> iter=a.iterator();

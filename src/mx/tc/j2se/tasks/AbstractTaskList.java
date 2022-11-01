@@ -12,6 +12,7 @@ public abstract class AbstractTaskList implements Iterable<Task> {
 
     public abstract Stream<Task> getStream();
 
+    public abstract AbstractTaskList<Task> clone(AbstractTaskList<Task> obj);
     private mx.tc.j2se.tasks.Task Task;
 
     public abstract void add(Task task);

@@ -3,7 +3,6 @@ package mx.tc.j2se.tasks;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.stream.Stream;
 
 public class LinkedTaskList extends AbstractTaskList {
@@ -147,10 +146,17 @@ public class LinkedTaskList extends AbstractTaskList {
     }
 
     @Override
-    public Stream<Task> getStream() {
+    public Stream<Task> getStream(){
+        ArrayList<Task> ar = new ArrayList<Task>();
+        Node current=head;
+        while(current != null) {
+            ar.add(current.data);
 
-        return Stream.of();
+            current = current.next;
+        }
+        return ar.stream();
     }
+
 
 
 }

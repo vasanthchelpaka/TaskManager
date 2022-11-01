@@ -200,7 +200,7 @@ public class Main {
 
 
 
-        // streams old.
+        // streams old. won't work
      /*   AbstractTaskList abobject2 = new ArrayTaskList();
         abobject2.add(task1);
         abobject2.add(task2);
@@ -223,13 +223,21 @@ public class Main {
         Stream<Task> t=abobject2.getStream();
                 t.forEach(System.out::println);*/
 
-        AbstractTaskList abobject3 = new LinkedTaskList();
+
+        // streams linked list
+   /*     LinkedTaskList abobject3 = new LinkedTaskList();
         abobject3.add(task1);
         abobject3.add(task2);
         abobject3.add(task3);
         abobject3.add(task4);
-        List<AbstractTaskList> aList = new ArrayList<AbstractTaskList>(abobject3);
-        abobject3.getStream();
+        //abobject3.display();
+//        List<AbstractTaskList> aList = new ArrayList<AbstractTaskList>(abobject3);
+//        abobject3.getStream();
+        //LinkedTaskList l=new LinkedTaskList();
+        Stream<Task> a= abobject3.getStream();
+        System.out.println("Linked list stream Obj data:");
+        System.out.println('\n');
+        a.forEach(System.out::println); */
 
 
 
